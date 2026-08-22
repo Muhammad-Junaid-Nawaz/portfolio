@@ -1,0 +1,153 @@
+/* Readability layer shared by every portfolio page. */
+:root {
+  --type-body: clamp(1.0625rem, 0.18vw + 1rem, 1.125rem);
+  --type-nav: 0.95rem;
+  --type-label: 0.9rem;
+  --type-caption: 0.875rem;
+  --type-index: 1rem;
+  --type-card-label: 1.05rem;
+}
+
+body {
+  font-size: var(--type-body);
+}
+
+p,
+li {
+  line-height: 1.65;
+}
+
+.site-nav a,
+.nav a {
+  font-size: var(--type-nav);
+  line-height: 1.35;
+}
+
+.brand-copy,
+.brand-text {
+  font-size: 0.85rem;
+  line-height: 1.2;
+}
+
+/* Eyebrows, overlines, section kickers, and category labels. */
+.eyebrow,
+.section-kicker,
+.domain-number,
+.timeline-year,
+.project-sequence,
+.role-period,
+.role-details span,
+.research-project-story section > span,
+.citation-type,
+.degree header > p,
+.chapter-index,
+.sensory-list span,
+.collaboration-citations span,
+.credential-domains > article > span {
+  font-size: var(--type-label);
+  line-height: 1.35;
+}
+
+/* Upper-corner ordinals, years, and compact numeric markers. */
+.hero-index,
+.experience-hero-index,
+.expertise-index span,
+.leadership-flow span,
+.contact-focus span,
+.capability-list span,
+.teaching-grid strong,
+.education-value-grid span,
+.recognition-hero-grid span,
+.award-highlight-grid span,
+.poster-timeline span {
+  font-size: var(--type-index);
+  line-height: 1.3;
+}
+
+/* Card and category names such as Product Development and Quality Analytics. */
+.expertise-index strong,
+.project-jump a,
+.project-overlay span,
+.project-number {
+  font-size: var(--type-card-label);
+  line-height: 1.35;
+}
+
+/* Compact UI labels, tags, captions, and footer text. */
+.portrait-caption,
+.image-label,
+.project-tag,
+.site-footer,
+.menu-button,
+.contact-email span,
+.contact-portrait figcaption,
+.contact-links span,
+.role-place,
+.role-media span,
+.team-orbit span,
+.industry-case div span,
+.projects-hero-visual div span,
+.project-jump span,
+.project-role,
+.research-project-visual span,
+.project-methods span,
+.commercial-project-gallery figcaption,
+.commercial-team span,
+.commercial-process span,
+.commercial-project-copy > p:last-child,
+.expertise-orbit > span,
+.domain-visual span,
+.analytics-board span,
+.safety-content span,
+.collaboration-band span,
+.publications-hero-image span,
+.publication-summary span,
+.presentation-gallery figcaption,
+.poster-timeline p,
+.education-hero-visual span,
+.education-summary span,
+.education-summary > p,
+.degree header > span,
+.degree-focus > div span,
+.degree-metrics span,
+.recognition-summary span,
+.gallery-heading > p,
+.credential-gallery figcaption,
+.credential-domains i,
+.hero-note span,
+.stat span,
+.chapter-tags span,
+.photo figcaption,
+.passion span,
+.button,
+footer {
+  font-size: var(--type-caption);
+  line-height: 1.45;
+}
+
+/* Ordinary explanatory copy inside dense cards and lists. */
+.sensory-list p,
+.leadership-flow p,
+.award-highlight-grid p,
+.credential-domains p,
+.role-details p,
+.capability-list p,
+.research-project-story p,
+.collaboration-citations p,
+.contact-focus p,
+.chapter-copy p,
+.section-head p {
+  font-size: var(--type-body);
+  line-height: 1.65;
+}
+
+@media (max-width: 700px) {
+  :root {
+    --type-body: 1rem;
+    --type-nav: 0.95rem;
+    --type-label: 0.875rem;
+    --type-caption: 0.8125rem;
+    --type-index: 0.9375rem;
+    --type-card-label: 1rem;
+  }
+}
