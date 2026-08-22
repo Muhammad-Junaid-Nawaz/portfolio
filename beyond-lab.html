@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Muhammad Junaid Nawaz beyond the laboratory, travel, photography, food culture, wildlife, history, and outdoor exploration.">
+  <title>Beyond the Lab | Muhammad Junaid Nawaz</title>
+  <style>
+    :root {
+      --ink: #0b1412;
+      --ink-soft: #14201d;
+      --ivory: #eeeee7;
+      --mist: #b8c2bd;
+      --sage: #73877e;
+      --acid: #c8ff42;
+      --copper: #b96f45;
+      --line: rgba(238,238,231,.18);
+      --radius: 1.4rem;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--ink); }
+    body { margin: 0; color: var(--ivory); background: var(--ink); font-family: Inter, ui-sans-serif, system-ui, sans-serif; line-height: 1.45; }
+    img { width: 100%; display: block; }
+    a { color: inherit; }
+    .skip { position: fixed; left: 1rem; top: .75rem; z-index: 100; transform: translateY(-180%); background: var(--acid); color: var(--ink); padding: .65rem 1rem; border-radius: 2rem; }
+    .skip:focus { transform: none; }
+    .site-header { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 1rem clamp(1rem,4vw,4rem); background: rgba(11,20,18,.88); backdrop-filter: blur(18px); border-bottom: 1px solid var(--line); }
+    .brand { display: flex; align-items: center; gap: .85rem; text-decoration: none; }
+    .monogram { width: 3rem; aspect-ratio: 1; display: grid; place-items: center; border: 1px solid var(--ivory); border-radius: 50%; font-weight: 750; }
+    .brand-text { font-size: .76rem; line-height: 1.05; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; }
+    .nav { display: flex; gap: clamp(.55rem, 1vw, 1.1rem); align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+    .nav a { text-decoration: none; color: var(--mist); font-size: .85rem; }
+    .nav a[aria-current="page"] { color: var(--acid); }
+    .menu-button { display: none; border: 1px solid var(--line); border-radius: 999px; padding: .65rem .9rem; background: transparent; color: var(--ivory); }
+    main { overflow: clip; }
+    .eyebrow { margin: 0 0 1rem; color: var(--acid); letter-spacing: .18em; text-transform: uppercase; font-size: .72rem; font-weight: 750; }
+    .hero { min-height: calc(100svh - 5rem); display: grid; grid-template-columns: minmax(0,1.05fr) minmax(20rem,.95fr); gap: clamp(2rem,5vw,6rem); align-items: center; padding: clamp(4rem,9vw,8rem) clamp(1rem,5vw,5rem); background: radial-gradient(circle at 75% 20%, rgba(115,135,126,.22), transparent 38%), linear-gradient(135deg,#0b1412 20%,#101c19 100%); }
+    .hero h1 { margin: 0; max-width: 12ch; font-size: clamp(3.5rem,8vw,8.8rem); line-height: .86; letter-spacing: -.065em; font-weight: 620; }
+    .hero h1 em { color: var(--acid); font-style: normal; }
+    .hero-intro { max-width: 38rem; margin: 1.8rem 0 0; color: var(--mist); font-size: clamp(1.05rem,1.5vw,1.35rem); }
+    .hero-visual { position: relative; min-height: 38rem; }
+    .hero-image { position: absolute; inset: 0 7% 4% 0; height: 92%; object-fit: cover; object-position: 68% center; border-radius: 48% 48% var(--radius) var(--radius); filter: saturate(.88) contrast(1.04); }
+    .hero-note { position: absolute; right: 0; bottom: 0; width: min(18rem,65%); padding: 1.25rem; background: var(--acid); color: var(--ink); border-radius: var(--radius); }
+    .hero-note strong { display: block; font-size: 1.9rem; letter-spacing: -.04em; }
+    .hero-note span { font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; }
+    .stats { display: grid; grid-template-columns: repeat(5,1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .stat { min-height: 10rem; padding: 2rem clamp(1rem,3vw,2.6rem); border-right: 1px solid var(--line); display: flex; flex-direction: column; justify-content: space-between; }
+    .stat:last-child { border: 0; }
+    .stat strong { color: var(--acid); font-size: clamp(2rem,4vw,4rem); line-height: 1; letter-spacing: -.05em; }
+    .stat span { color: var(--mist); text-transform: uppercase; letter-spacing: .12em; font-size: .68rem; }
+    .journey { padding: clamp(5rem,10vw,10rem) clamp(1rem,5vw,5rem); }
+    .section-head { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: end; margin-bottom: 3rem; }
+    .section-head h2 { margin: 0; max-width: 11ch; font-size: clamp(2.7rem,6vw,6.5rem); line-height: .92; letter-spacing: -.055em; font-weight: 620; }
+    .section-head p { max-width: 38rem; margin: 0; color: var(--mist); font-size: 1.08rem; }
+    .map-shell { position: relative; min-height: 44rem; border: 1px solid var(--line); border-radius: calc(var(--radius) * 1.3); overflow: hidden; background: radial-gradient(circle at 50% 45%,rgba(115,135,126,.22),transparent 48%),#0d1816; }
+    .map-shell svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .continent { fill: #1b2b27; stroke: #31463f; stroke-width: 1.5; }
+    .route { fill: none; stroke: var(--copper); stroke-width: 2.2; stroke-dasharray: 5 8; opacity: .82; }
+    .route-glow { fill: none; stroke: var(--acid); stroke-width: 6; opacity: .08; }
+    .pin { fill: var(--acid); stroke: #0b1412; stroke-width: 4; }
+    .map-label { fill: var(--ivory); font-size: 16px; font-weight: 680; paint-order: stroke; stroke: var(--ink); stroke-width: 5px; }
+    .map-caption { position: absolute; left: 1.5rem; bottom: 1.5rem; max-width: 24rem; padding: 1.15rem 1.25rem; border-radius: 1rem; background: rgba(11,20,18,.84); backdrop-filter: blur(12px); border: 1px solid var(--line); color: var(--mist); }
+    .map-caption strong { color: var(--ivory); display: block; margin-bottom: .25rem; }
+    .chapter { display: grid; grid-template-columns: minmax(16rem,.72fr) minmax(0,1.28fr); gap: clamp(2rem,6vw,7rem); padding: clamp(5rem,9vw,9rem) clamp(1rem,5vw,5rem); border-top: 1px solid var(--line); }
+    .chapter-copy { position: sticky; top: 8rem; align-self: start; }
+    .chapter-index { color: var(--acid); font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; }
+    .chapter h2 { margin: .9rem 0 1.3rem; font-size: clamp(2.8rem,5.5vw,6rem); line-height: .9; letter-spacing: -.055em; font-weight: 620; }
+    .chapter-copy p { max-width: 31rem; color: var(--mist); font-size: 1.05rem; }
+    .chapter-tags { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.5rem; }
+    .chapter-tags span { border: 1px solid var(--line); border-radius: 999px; padding: .5rem .75rem; color: var(--mist); font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; }
+    .gallery { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+    .photo { min-height: 28rem; margin: 0; position: relative; overflow: hidden; border-radius: var(--radius); background: var(--ink-soft); }
+    .photo.wide { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+    .photo.tall { min-height: 42rem; }
+    .photo img { height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2,.8,.2,1); }
+    .photo:hover img { transform: scale(1.025); }
+    .photo figcaption { position: absolute; left: .8rem; bottom: .8rem; max-width: calc(100% - 1.6rem); padding: .62rem .78rem; border-radius: .75rem; background: rgba(11,20,18,.78); backdrop-filter: blur(10px); font-size: .75rem; color: var(--ivory); }
+    .chapter:nth-of-type(even) { background: var(--ivory); color: var(--ink); }
+    .chapter:nth-of-type(even) .chapter-copy p { color: #52615c; }
+    .chapter:nth-of-type(even) .chapter-tags span { color: #52615c; border-color: rgba(11,20,18,.18); }
+    .passions { padding: clamp(5rem,10vw,10rem) clamp(1rem,5vw,5rem); background: var(--ivory); color: var(--ink); }
+    .passion-grid { margin-top: 3rem; display: grid; grid-template-columns: repeat(12,1fr); grid-auto-rows: 8rem; gap: 1rem; }
+    .passion { position: relative; overflow: hidden; border-radius: var(--radius); }
+    .passion img { height: 100%; object-fit: cover; }
+    .passion span { position: absolute; left: .8rem; bottom: .8rem; padding: .55rem .7rem; background: rgba(11,20,18,.8); color: var(--ivory); border-radius: .7rem; font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; }
+    .passion:nth-child(1) { grid-column: span 7; grid-row: span 4; }
+    .passion:nth-child(2) { grid-column: span 5; grid-row: span 3; }
+    .passion:nth-child(3) { grid-column: span 5; grid-row: span 4; }
+    .passion:nth-child(4) { grid-column: span 7; grid-row: span 3; }
+    .passion:nth-child(5) { grid-column: span 6; grid-row: span 3; }
+    .passion:nth-child(6) { grid-column: span 6; grid-row: span 3; }
+    .closing { min-height: 65svh; display: grid; place-items: center; text-align: center; padding: 5rem 1rem; background: radial-gradient(circle,rgba(200,255,66,.13),transparent 45%),var(--ink); }
+    .closing h2 { max-width: 15ch; margin: 0 auto 1.5rem; font-size: clamp(3rem,7vw,7rem); line-height: .91; letter-spacing: -.06em; font-weight: 620; }
+    .closing p { max-width: 38rem; color: var(--mist); margin: 0 auto 2rem; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-width: 15rem; padding: 1rem 1.35rem; border-radius: 999px; background: var(--acid); color: var(--ink); text-decoration: none; text-transform: uppercase; letter-spacing: .08em; font-weight: 760; font-size: .78rem; }
+    footer { display: flex; justify-content: space-between; gap: 2rem; padding: 2rem clamp(1rem,5vw,5rem); color: var(--mist); border-top: 1px solid var(--line); font-size: .78rem; }
+    @media (max-width: 900px) {
+      .nav { display: none; }
+      .menu-button { display: block; }
+      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 5rem; }
+      .hero h1 { max-width: 9ch; font-size: clamp(3.7rem,16vw,6.5rem); }
+      .hero-visual { min-height: 35rem; }
+      .stats { grid-template-columns: repeat(2,1fr); }
+      .stat { border-bottom: 1px solid var(--line); }
+      .section-head, .chapter { grid-template-columns: 1fr; }
+      .section-head h2 { max-width: 12ch; }
+      .map-shell { min-height: 34rem; }
+      .map-label { font-size: 13px; }
+      .chapter-copy { position: static; }
+      .photo, .photo.tall { min-height: 31rem; }
+    }
+    @media (max-width: 600px) {
+      .brand-text { display: none; }
+      .hero { padding-inline: 1rem; }
+      .hero-visual { min-height: 31rem; }
+      .hero-image { inset: 0 0 4rem 0; height: calc(100% - 4rem); }
+      .hero-note { right: .6rem; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .stat { min-height: 8rem; }
+      .stat:last-child { grid-column: 1 / -1; }
+      .journey, .chapter, .passions { padding-inline: 1rem; }
+      .map-shell { min-height: 30rem; }
+      .map-caption { left: .75rem; right: .75rem; bottom: .75rem; }
+      .gallery { grid-template-columns: 1fr; }
+      .photo.wide { grid-column: auto; aspect-ratio: auto; }
+      .photo, .photo.tall { min-height: 30rem; }
+      .passion-grid { display: grid; grid-template-columns: 1fr; grid-auto-rows: 24rem; }
+      .passion:nth-child(n) { grid-column: auto; grid-row: auto; }
+      footer { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .photo img { transition: none; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Muhammad Junaid Nawaz home">
+      <span class="monogram">MJN</span>
+      <span class="brand-text">Meat Science<br>Research and Development</span>
+    </a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a><a href="experience.html">Experience</a><a href="projects.html">R&amp;D</a><a href="expertise.html">Expertise</a><a href="publications.html">Publications</a><a href="education.html">Education</a><a href="recognition.html">Recognition</a><a href="beyond-lab.html" aria-current="page">Beyond the Lab</a><a href="contact.html">Contact</a>
+    </nav>
+    <button class="menu-button" type="button" aria-label="Open menu">Menu</button>
+  </header>
+
+  <main id="content">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Beyond the Lab</p>
+        <h1>Places, passions, and <em>perspective.</em></h1>
+        <p class="hero-intro">Travel has taught me to observe carefully, listen first, and remain curious. Beyond research, I find energy in landscapes, food traditions, wildlife, history, and the people who give every place its character.</p>
+      </div>
+      <div class="hero-visual">
+        <img class="hero-image" src="upload/06-1000274985.jpg" alt="Muhammad Junaid Nawaz on the rocky coast of Punta Ballena, Uruguay">
+        <div class="hero-note"><strong>234 cities</strong><span>One expanding perspective</span></div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Travel summary">
+      <div class="stat"><strong>9</strong><span>Countries and regions</span></div>
+      <div class="stat"><strong>234</strong><span>Cities visited</span></div>
+      <div class="stat"><strong>111</strong><span>Trips recorded</span></div>
+      <div class="stat"><strong>1,135</strong><span>Days of discovery</span></div>
+      <div class="stat"><strong>1,939</strong><span>Places explored</span></div>
+    </section>
+
+    <section class="journey">
+      <div class="section-head">
+        <div><p class="eyebrow">Travel overview</p><h2>A life mapped through curiosity.</h2></div>
+        <p>The map is a narrative rather than a travel log. Each point opens into a chapter shaped by nature, food, history, science, and personal discovery.</p>
+      </div>
+      <div class="map-shell" role="img" aria-label="Stylized map connecting Pakistan, the United Arab Emirates, Europe, Türkiye, the United States, and Uruguay">
+        <svg viewBox="0 0 1200 650" aria-hidden="true">
+          <path class="continent" d="M55 160L180 88 330 110 370 175 330 250 205 270 115 225Z"/>
+          <path class="continent" d="M300 340L365 330 412 390 398 510 350 600 312 528 325 430Z"/>
+          <path class="continent" d="M520 130L620 98 738 125 790 195 744 254 660 248 625 330 570 290 585 215Z"/>
+          <path class="continent" d="M650 250L748 242 815 335 770 500 694 535 640 430Z"/>
+          <path class="continent" d="M755 145L900 82 1082 128 1140 240 1035 318 900 270 825 205Z"/>
+          <path class="continent" d="M995 455L1090 445 1152 515 1098 575 1008 555Z"/>
+          <path class="route-glow" d="M930 245C845 220 760 205 680 190S510 160 620 180S870 190 250 190C305 350 360 430 360 500"/>
+          <path class="route" d="M930 245C845 220 760 205 680 190S510 160 620 180S870 190 250 190C305 350 360 430 360 500"/>
+          <circle class="pin" cx="930" cy="245" r="9"/><text class="map-label" x="946" y="238">Pakistan</text>
+          <circle class="pin" cx="825" cy="280" r="9"/><text class="map-label" x="842" y="302">UAE</text>
+          <circle class="pin" cx="680" cy="190" r="9"/><text class="map-label" x="697" y="181">Türkiye</text>
+          <circle class="pin" cx="620" cy="180" r="9"/><text class="map-label" x="540" y="160">Europe</text>
+          <circle class="pin" cx="250" cy="190" r="9"/><text class="map-label" x="184" y="170">USA</text>
+          <circle class="pin" cx="360" cy="500" r="9"/><text class="map-label" x="378" y="520">Uruguay</text>
+        </svg>
+        <div class="map-caption"><strong>From place to perspective</strong>The route continues to grow, but the purpose remains constant, to learn how people, landscapes, and food systems connect.</div>
+      </div>
+    </section>
+
+    <section class="chapter">
+      <div class="chapter-copy"><span class="chapter-index">Chapter 01</span><h2>Pakistan</h2><p>Home is where my curiosity about animals, agriculture, landscape, and culture first took shape. From the plains to the high mountains, it remains the point from which every journey begins.</p><div class="chapter-tags"><span>Wildlife</span><span>Mountains</span><span>Home</span></div></div>
+      <div class="gallery">
+        <figure class="photo wide"><img loading="lazy" src="upload/10-1000006528.jpg" alt="Muhammad Junaid Nawaz viewing the mountains of northern Pakistan"><figcaption>Northern Pakistan, landscape at a remarkable scale</figcaption></figure>
+        <figure class="photo tall"><img loading="lazy" src="upload/10-1000315346.jpg" alt="Muhammad Junaid Nawaz handling a trained raptor"><figcaption>A lifelong connection with animals and wildlife</figcaption></figure>
+        <figure class="photo tall"><img loading="lazy" src="upload/01-1000253071.jpg" alt="Muhammad Junaid Nawaz carefully holding a small snake"><figcaption>Curiosity that reaches beyond familiar species</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="chapter">
+      <div class="chapter-copy"><span class="chapter-index">Chapter 02</span><h2>United States</h2><p>A professional home and an immense field of discovery. Cities, coastlines, aviation, museums, wildlife, and community experiences have made the United States a central chapter in my life.</p><div class="chapter-tags"><span>Science</span><span>Coastlines</span><span>Museums</span><span>Community</span></div></div>
+      <div class="gallery">
+        <figure class="photo wide"><img loading="lazy" src="upload/02-1000250342.jpg" alt="Muhammad Junaid Nawaz in front of the United States Capitol"><figcaption>Washington, history and public life</figcaption></figure>
+        <figure class="photo"><img loading="lazy" src="upload/03-1000196199.jpg" alt="Muhammad Junaid Nawaz seated in an aircraft cockpit"><figcaption>Aviation, engineering, and the joy of learning how things work</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="chapter">
+      <div class="chapter-copy"><span class="chapter-index">Chapter 03</span><h2>Europe and Türkiye</h2><p>Architecture, markets, mountains, and living history. These journeys sharpened my eye for detail and deepened my appreciation for how food traditions carry science, craft, and identity.</p><div class="chapter-tags"><span>Architecture</span><span>Food culture</span><span>History</span><span>Alpine landscapes</span></div></div>
+      <div class="gallery">
+        <figure class="photo wide"><img loading="lazy" src="upload/03-1000022671.jpg" alt="Muhammad Junaid Nawaz in an Alpine mountain landscape"><figcaption>The Alps, scale, silence, and perspective</figcaption></figure>
+        <figure class="photo tall"><img loading="lazy" src="upload/06-1000022567.jpg" alt="Muhammad Junaid Nawaz at the Colosseum in Rome"><figcaption>Rome, history experienced at human scale</figcaption></figure>
+        <figure class="photo tall"><img loading="lazy" src="upload/09-1000315556.jpg" alt="Muhammad Junaid Nawaz in front of a mosque in Istanbul"><figcaption>Istanbul, culture spanning continents</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="chapter">
+      <div class="chapter-copy"><span class="chapter-index">Chapter 04</span><h2>Uruguay</h2><p>Uruguay brought together many of the things I value most, livestock systems, regional food, generous landscapes, coastal light, and conversations with people working close to agriculture.</p><div class="chapter-tags"><span>Agriculture</span><span>Coast</span><span>Food</span><span>Photography</span></div></div>
+      <div class="gallery">
+        <figure class="photo wide"><img loading="lazy" src="upload/10-1000275104.jpg" alt="Sunset over the harbor at Punta del Este, Uruguay"><figcaption>Punta del Este, one of those evenings that asks you to stop</figcaption></figure>
+        <figure class="photo"><img loading="lazy" src="upload/09-1000274932.jpg" alt="Uruguayan beef and sausage prepared for tasting"><figcaption>Food culture understood through place and practice</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="passions">
+      <div class="section-head"><div><p class="eyebrow">Personal interests</p><h2>What keeps me curious.</h2></div><p>My interests are connected by observation. I enjoy noticing the material, biological, historical, and human details that make an experience memorable.</p></div>
+      <div class="passion-grid">
+        <div class="passion"><img loading="lazy" src="upload/07-1000225363.jpg" alt="A trained raptor from Auburn University"><span>Wildlife</span></div>
+        <div class="passion"><img loading="lazy" src="upload/04-1000022799.jpg" alt="Cheese and cured meat market in Italy"><span>Food culture</span></div>
+        <div class="passion"><img loading="lazy" src="upload/05-1000249004.jpg" alt="Fluorescent minerals glowing in a museum display"><span>Museums and natural history</span></div>
+        <div class="passion"><img loading="lazy" src="upload/02-1000006541.jpg" alt="Colorful hot air balloons at an outdoor festival"><span>Outdoor discovery</span></div>
+        <div class="passion"><img loading="lazy" src="upload/08-1000315371.jpg" alt="Muhammad Junaid Nawaz exploring a wetland boardwalk"><span>Nature</span></div>
+      </div>
+    </section>
+
+    <section class="closing"><div><p class="eyebrow">The journey continues</p><h2>Curiosity does not end at the laboratory door.</h2><p>Every place adds another way of seeing people, science, food, and the world we share.</p><a class="button" href="contact.html">Start a conversation</a></div></section>
+  </main>
+  <footer><span>© Muhammad Junaid Nawaz</span><span>Meat Scientist, PhD Candidate, DVM</span></footer>
+</body>
+</html>
