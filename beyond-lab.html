@@ -52,8 +52,8 @@
     .section-head { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: end; margin-bottom: 3rem; }
     .section-head h2 { margin: 0; max-width: 11ch; font-size: clamp(2.7rem,6vw,6.5rem); line-height: .92; letter-spacing: -.055em; font-weight: 620; }
     .section-head p { max-width: 38rem; margin: 0; color: var(--mist); font-size: 1.08rem; }
-    .map-shell { position: relative; min-height: 44rem; border: 1px solid var(--line); border-radius: calc(var(--radius) * 1.3); overflow: hidden; background: radial-gradient(circle at 50% 45%,rgba(115,135,126,.22),transparent 48%),#0d1816; }
-    .map-shell svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .map-shell { position: relative; border: 1px solid var(--line); border-radius: calc(var(--radius) * 1.3); overflow: hidden; background: radial-gradient(circle at 50% 45%,rgba(115,135,126,.22),transparent 48%),#0d1816; }
+    .map-shell img { display: block; width: 100%; height: auto; }
     .continent { fill: #1b2b27; stroke: #31463f; stroke-width: 1.5; }
     .route { fill: none; stroke: var(--copper); stroke-width: 2.2; stroke-dasharray: 5 8; opacity: .82; }
     .route-glow { fill: none; stroke: var(--acid); stroke-width: 6; opacity: .08; }
@@ -104,7 +104,6 @@
       .stat { border-bottom: 1px solid var(--line); }
       .section-head, .chapter { grid-template-columns: 1fr; }
       .section-head h2 { max-width: 12ch; }
-      .map-shell { min-height: 34rem; }
       .map-label { font-size: 13px; }
       .chapter-copy { position: static; }
       .photo, .photo.tall { min-height: 31rem; }
@@ -119,7 +118,6 @@
       .stat { min-height: 8rem; }
       .stat:last-child { grid-column: 1 / -1; }
       .journey, .chapter, .passions { padding-inline: 1rem; }
-      .map-shell { min-height: 30rem; }
       .map-caption { left: .75rem; right: .75rem; bottom: .75rem; }
       .gallery { grid-template-columns: 1fr; }
       .photo.wide { grid-column: auto; aspect-ratio: auto; }
@@ -171,24 +169,8 @@
         <div><p class="eyebrow">Travel overview</p><h2>A life mapped through curiosity.</h2></div>
         <p>The map is a narrative rather than a travel log. Each point opens into a chapter shaped by nature, food, history, science, and personal discovery.</p>
       </div>
-      <div class="map-shell" role="img" aria-label="Stylized map connecting Pakistan, the United Arab Emirates, Europe, Türkiye, the United States, and Uruguay">
-        <svg viewBox="0 0 1200 650" aria-hidden="true">
-          <path class="continent" d="M55 160L180 88 330 110 370 175 330 250 205 270 115 225Z"/>
-          <path class="continent" d="M300 340L365 330 412 390 398 510 350 600 312 528 325 430Z"/>
-          <path class="continent" d="M520 130L620 98 738 125 790 195 744 254 660 248 625 330 570 290 585 215Z"/>
-          <path class="continent" d="M650 250L748 242 815 335 770 500 694 535 640 430Z"/>
-          <path class="continent" d="M755 145L900 82 1082 128 1140 240 1035 318 900 270 825 205Z"/>
-          <path class="continent" d="M995 455L1090 445 1152 515 1098 575 1008 555Z"/>
-          <path class="route-glow" d="M930 245C845 220 760 205 680 190S510 160 620 180S870 190 250 190C305 350 360 430 360 500"/>
-          <path class="route" d="M930 245C845 220 760 205 680 190S510 160 620 180S870 190 250 190C305 350 360 430 360 500"/>
-          <circle class="pin" cx="930" cy="245" r="9"/><text class="map-label" x="946" y="238">Pakistan</text>
-          <circle class="pin" cx="825" cy="280" r="9"/><text class="map-label" x="842" y="302">UAE</text>
-          <circle class="pin" cx="680" cy="190" r="9"/><text class="map-label" x="697" y="181">Türkiye</text>
-          <circle class="pin" cx="620" cy="180" r="9"/><text class="map-label" x="540" y="160">Europe</text>
-          <circle class="pin" cx="250" cy="190" r="9"/><text class="map-label" x="184" y="170">USA</text>
-          <circle class="pin" cx="360" cy="500" r="9"/><text class="map-label" x="378" y="520">Uruguay</text>
-        </svg>
-        <div class="map-caption"><strong>From place to perspective</strong>The route continues to grow, but the purpose remains constant, to learn how people, landscapes, and food systems connect.</div>
+      <div class="map-shell">
+        <img src="upload/world_map.png" alt="World map tracing a journey from Pakistan through the United Arab Emirates, Türkiye, Europe, the United States, and Uruguay">
       </div>
     </section>
 
