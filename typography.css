@@ -12,6 +12,18 @@ body {
   font-size: var(--type-body);
 }
 
+/* Dual-color focus treatment stays visible on both ivory and dark surfaces. */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #d9ff63;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px #166534;
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
 p,
 li {
   line-height: 1.65;
