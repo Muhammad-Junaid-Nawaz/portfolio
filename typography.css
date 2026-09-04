@@ -43,13 +43,21 @@ li {
 
 .brand > .header-logo-badge {
   display: block;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 3.4375rem;
+  height: 3.4375rem;
   flex-shrink: 0;
   border-radius: 50%;
   object-fit: contain;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.22));
   transition: transform 0.2s ease;
+}
+
+.site-header {
+  padding-block: 0.8rem;
+}
+
+.site-header.scrolled {
+  padding-block: 0.4rem;
 }
 
 .brand:hover > .header-logo-badge {
