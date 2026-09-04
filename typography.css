@@ -41,6 +41,27 @@ li {
   line-height: 1.2;
 }
 
+.brand > .header-logo-badge {
+  display: block;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.22));
+  transition: transform 0.2s ease;
+}
+
+.brand:hover > .header-logo-badge {
+  transform: scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand > .header-logo-badge {
+    transition: none;
+  }
+}
+
 /* Eyebrows, overlines, section kickers, and category labels. */
 .eyebrow,
 .section-kicker,
