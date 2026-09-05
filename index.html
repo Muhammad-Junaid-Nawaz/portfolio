@@ -55,14 +55,14 @@ h1 em { color: var(--acid); font-style: normal; }
 .button { display: inline-flex; justify-content: space-between; align-items: center; gap: 2rem; text-decoration: none; font-size: .82rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
 .button-primary { min-width: 15rem; background: var(--acid); color: var(--ink); padding: 1.15rem 1.3rem; border-radius: 100px; transition: transform .25s, background .25s; }
 .button-primary:hover { transform: translateY(-3px); background: white; }
-.button-quiet { padding-block: .8rem; border-bottom: 1px solid rgba(255,255,255,.35); }
+.button-resume { padding: 1.15rem 1.3rem; border-radius: 100px; background: var(--copper); color: var(--ink); transition: transform .25s, background .25s; }
+.button-resume:hover { transform: translateY(-3px); background: #df7c49; }
 .hero-visual { position: relative; align-self: end; max-width: 590px; margin-left: auto; }
 .portrait-frame { position: relative; overflow: hidden; border-radius: 18rem 18rem 0 0; background: var(--sage); }
 .portrait-frame::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px rgba(255,255,255,.18); }
 .portrait-frame img { width: 100%; height: min(72vh, 780px); object-fit: cover; object-position: center 15%; filter: saturate(.78) contrast(1.04); }
 .image-stamp { position: absolute; right: 1.1rem; bottom: 1.1rem; display: grid; place-items: center; width: 5rem; aspect-ratio: 1; background: var(--acid); color: var(--ink); border-radius: 50%; font: 600 .6rem/1.2 "Manrope"; text-align: center; text-transform: uppercase; letter-spacing: .1em; transform: rotate(8deg); }
 .portrait-caption { margin: .8rem 0 0; color: rgba(255,255,255,.5); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }
-.hero-index { position: absolute; right: 1.5rem; top: 48%; font-size: .68rem; letter-spacing: .1em; writing-mode: vertical-rl; color: rgba(255,255,255,.35); }
 
 .proof { max-width: var(--max); margin: auto; display: grid; grid-template-columns: repeat(3, 1fr) 1.35fr; border-inline: 1px solid var(--line); }
 .proof-item, .proof-note { min-height: 13rem; padding: 2rem; border-right: 1px solid var(--line); display: flex; flex-direction: column; justify-content: space-between; }
@@ -161,7 +161,7 @@ h1 em { color: var(--acid); font-style: normal; }
   h1 { font-size: clamp(3.2rem, 16vw, 5rem); line-height: .96; letter-spacing: -.025em; }
   .hero-actions { align-items: stretch; flex-direction: column; }
   .button-primary { min-width: 0; }
-  .button-quiet { align-self: flex-start; }
+  .button-resume { align-self: flex-start; }
   .proof { grid-template-columns: 1fr; }
   .proof-item { min-height: 10rem; border-right: 0; border-bottom: 1px solid var(--line); }
   .proof-note { grid-column: auto; min-height: 12rem; }
@@ -314,7 +314,7 @@ h1 em { color: var(--acid); font-style: normal; }
           <p class="hero-intro">I’m Muhammad Junaid Nawaz, a Meat Scientist, PhD Candidate, and DVM connecting applied research with commercially relevant product and processing solutions.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#experience">Explore my experience <span aria-hidden="true">↘</span></a>
-            <a class="button button-quiet" href="#contact">Connect with me</a>
+            <a class="button button-resume" href="Muhammad_Junaid_Nawaz_Resume.pdf" target="_blank" rel="noopener">View résumé <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
@@ -326,7 +326,6 @@ h1 em { color: var(--acid); font-style: normal; }
           <p class="portrait-caption">R&amp;D · Product Development · Meat Quality · Food Safety</p>
         </div>
       </div>
-      <div class="hero-index" aria-hidden="true">01</div>
     </section>
 
     <section class="proof" aria-label="Career highlights">

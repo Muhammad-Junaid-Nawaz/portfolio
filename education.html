@@ -613,8 +613,8 @@ h1 em { color: var(--acid); font-style: normal; }
 .education-hero-copy > p:last-child { max-width: 650px; margin: 2.2rem 0 0; color: rgba(16,24,22,.63); font-size: clamp(1rem,1.3vw,1.25rem); line-height: 1.7; }
 .education-hero-visual { position: relative; align-self: end; }
 .education-hero-visual img { width: 100%; height: min(70vh,760px); object-fit: cover; filter: saturate(.72) contrast(1.03); }
-.education-hero-visual::before { content: ""; position: absolute; z-index: 2; inset: 1rem -1rem -1rem 1rem; border: 1px solid rgba(16,24,22,.22); }
-.education-hero-visual > div { position: absolute; z-index: 3; left: 1rem; right: 1rem; bottom: 1rem; display: flex; flex-wrap: wrap; gap: .5rem; }
+.education-hero-visual::before { content: ""; position: absolute; z-index: 2; inset: 1rem -1rem auto 1rem; height: min(70vh,760px); border: 1px solid rgba(16,24,22,.22); pointer-events: none; }
+.education-hero-visual > div { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
 .education-hero-visual span { padding: .55rem .75rem; background: var(--acid); color: var(--ink); font-size: .6rem; letter-spacing: .08em; text-transform: uppercase; }
 .education-summary { max-width: var(--max); margin: auto; display: grid; grid-template-columns: repeat(3,1fr) 1.25fr; border-inline: 1px solid var(--line); }
 .education-summary > div, .education-summary > p { min-height: 12rem; margin: 0; padding: 1.8rem; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--line); }
