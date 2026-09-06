@@ -1,0 +1,27 @@
+{
+  "asset": "social-preview.png",
+  "purpose": "Open Graph and X/Twitter large-image social preview",
+  "dimensions": {
+    "width": 1731,
+    "height": 909,
+    "aspectRatio": "1.9043:1"
+  },
+  "exactCopy": [
+    "MUHAMMAD JUNAID NAWAZ",
+    "PhD CANDIDATE | MEAT SCIENCE & R&D | DVM",
+    "MEAT SCIENCE INTO BETTER PRODUCTS."
+  ],
+  "palette": [
+    "#101816",
+    "#f1eee6",
+    "#c96b3b",
+    "#d9ff63"
+  ],
+  "provenance": {
+    "generator": "OpenAI built-in ImageGen",
+    "editTarget": "Initial portfolio social-preview concept",
+    "portraitReference": "User-supplied suit portrait",
+    "logoReference": "upload/logo.png",
+    "notes": "Identity, navy suit, white shirt, portfolio emblem, exact credential line, exact headline, dark background, and social-thumbnail safe spacing were specified as edit invariants. This is the user-selected previously generated social preview version."
+  }
+}
