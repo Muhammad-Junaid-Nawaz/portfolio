@@ -1,0 +1,129 @@
+/* Optional premium motion layer for the Home page. */
+
+.hero-copy h1 .premium-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(26px);
+  filter: blur(6px);
+  animation: premium-word-in .7s cubic-bezier(.2, .7, .2, 1) var(--premium-word-delay, 0s) forwards;
+  animation-play-state: paused;
+}
+
+.hero-copy.visible h1 .premium-word {
+  animation-play-state: running;
+}
+
+@keyframes premium-word-in {
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(600px 320px at 70% 10%, rgba(217, 255, 99, .07), transparent 70%);
+  transform: translate3d(0, var(--premium-hero-parallax, 0), 0);
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 1;
+}
+
+.button-primary,
+.button-resume {
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.button-primary::after,
+.button-resume::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -70%;
+  width: 50%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .55), transparent);
+  transform: skewX(-20deg);
+  transition: left .55s;
+}
+
+.button-primary:hover::after,
+.button-resume:hover::after {
+  left: 130%;
+}
+
+.portrait-frame {
+  transform: translateZ(0);
+}
+
+.portrait-frame img {
+  transition: transform 1.2s cubic-bezier(.2, .8, .2, 1);
+}
+
+.project-card::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(400px 200px at 50% 0%, rgba(217, 255, 99, .12), transparent 70%);
+  transition: opacity .4s;
+}
+
+.project-overlay,
+.project-dark > * {
+  z-index: 2;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-visual:hover .portrait-frame img {
+    transform: scale(1.02);
+  }
+
+  .project-card:hover::after {
+    opacity: 1;
+  }
+
+  .capability-list article {
+    transition: background .3s, padding-left .3s;
+  }
+
+  .capability-list article:hover {
+    padding-left: 1rem;
+    background: rgba(217, 255, 99, .08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy h1 .premium-word {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none;
+  }
+
+  .hero::after {
+    transform: none;
+  }
+
+  .button-primary,
+  .button-resume {
+    will-change: auto;
+  }
+
+  .button-primary::after,
+  .button-resume::after {
+    display: none;
+  }
+}
