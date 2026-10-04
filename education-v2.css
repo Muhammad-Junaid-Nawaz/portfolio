@@ -1,0 +1,49 @@
+/* Additive motion enhancements for education.html. */
+.degree { position: relative; }
+
+.degree::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(500px 240px at 20% 0%, rgba(217, 255, 99, .10), transparent 70%);
+  transition: opacity .5s ease;
+}
+
+.degree > * { position: relative; z-index: 1; }
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .degree:hover::before { opacity: 1; }
+
+  .degree-metrics > div,
+  .education-value-grid article {
+    transition: transform .35s cubic-bezier(.2, .8, .2, 1);
+  }
+
+  .degree-metrics > div:hover { transform: translateY(-3px); }
+  .education-value-grid article:hover { transform: translateY(-4px); }
+
+  .education-hero-visual img {
+    transition: object-position .45s ease, filter .45s ease;
+  }
+
+  .education-hero-visual:hover img { filter: saturate(.82) contrast(1.03); }
+}
+
+.education-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: educationWordIn .6s cubic-bezier(.2, .7, .2, 1) forwards;
+}
+
+@keyframes educationWordIn {
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .degree::before { display: none; }
+  .education-word { opacity: 1; transform: none; animation: none; }
+}

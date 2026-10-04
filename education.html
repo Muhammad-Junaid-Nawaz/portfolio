@@ -787,6 +787,7 @@ h1 em { color: var(--acid); font-style: normal; }
   </style>
 
   <link rel="stylesheet" href="typography.css">
+  <link rel="stylesheet" href="education-v2.css">
 </head>
 <body class="education-page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -824,7 +825,7 @@ h1 em { color: var(--acid); font-style: normal; }
 
     <section class="degree degree-phd" id="phd">
       <div class="degree-mark" aria-hidden="true">01</div>
-      <header data-reveal><p>2022 to Present · Expected December 2026</p><h2>PhD in Animal Science</h2><span>Meat Science and Technology · University of Georgia</span></header>
+      <header data-reveal><p>2022 to Present · Expected December 2026</p><h2 data-split-words>PhD in Animal Science</h2><span>Meat Science and Technology · University of Georgia</span></header>
       <div class="degree-body">
         <div class="degree-focus" data-reveal><p>Doctoral research focused on using functional plant fibers to improve the quality, functionality, and utilization of further processed poultry products affected by wooden breast myopathy.</p><div><span>Breakfast sausage</span><span>Chicken nuggets</span><span>Chicken deli loaf</span><span>Clean label ingredients</span><span>Sensory science</span></div></div>
         <div class="degree-metrics" data-reveal><div><strong>3.73</strong><span>GPA</span></div><div><strong>UGA</strong><span>Athens, Georgia, USA</span></div></div>
@@ -833,7 +834,7 @@ h1 em { color: var(--acid); font-style: normal; }
 
     <section class="degree degree-mphil" id="mphil">
       <div class="degree-mark" aria-hidden="true">02</div>
-      <header data-reveal><p>Completed 2018</p><h2>M.Phil. in Meat Science and Technology</h2><span>University of Veterinary and Animal Sciences · Lahore, Pakistan</span></header>
+      <header data-reveal><p>Completed 2018</p><h2 data-split-words>M.Phil. in Meat Science and Technology</h2><span>University of Veterinary and Animal Sciences · Lahore, Pakistan</span></header>
       <div class="degree-body">
         <div class="degree-focus" data-reveal><p>Developed specialized knowledge in meat processing, product quality, analytical methods, food safety, and experimental research.</p><blockquote>Thesis research investigated the vacuum packed frozen shelf life of poultry products to improve quality retention and safety margins.</blockquote></div>
         <div class="degree-metrics" data-reveal><div><strong>3.92</strong><span>GPA</span></div><div><strong>UVAS</strong><span>Lahore, Pakistan</span></div></div>
@@ -842,7 +843,7 @@ h1 em { color: var(--acid); font-style: normal; }
 
     <section class="degree degree-duke" id="duke">
       <div class="degree-mark" aria-hidden="true">03</div>
-      <header data-reveal><p>Completed 2018 · Supplemental track</p><h2>Advanced Graduate Training in One Health</h2><span>Duke Global Health Institute · Duke University</span></header>
+      <header data-reveal><p>Completed 2018 · Supplemental track</p><h2 data-split-words>Advanced Graduate Training in One Health</h2><span>Duke Global Health Institute · Duke University</span></header>
       <div class="degree-body">
         <div class="degree-focus" data-reveal><p>Extended veterinary and food systems training into the connections among animal health, human health, environmental safety, and public health.</p><div><span>Food safety</span><span>Zoonotic diseases</span><span>Environmental health</span><span>Public health laboratory methods</span><span>One Health systems</span></div></div>
         <div class="degree-metrics" data-reveal><div><strong>4.00</strong><span>GPA</span></div><div><strong>Duke</strong><span>Durham, North Carolina</span></div></div>
@@ -851,7 +852,7 @@ h1 em { color: var(--acid); font-style: normal; }
 
     <section class="degree degree-dvm" id="dvm">
       <div class="degree-mark" aria-hidden="true">04</div>
-      <header data-reveal><p>Completed 2015</p><h2>Doctor of Veterinary Medicine</h2><span>University of Veterinary and Animal Sciences · Lahore, Pakistan</span></header>
+      <header data-reveal><p>Completed 2015</p><h2 data-split-words>Doctor of Veterinary Medicine</h2><span>University of Veterinary and Animal Sciences · Lahore, Pakistan</span></header>
       <div class="degree-body">
         <div class="degree-focus" data-reveal><p>Built the biological foundation that continues to shape my work in muscle science, animal health, food safety, carcass evaluation, and processing quality.</p><div><span>Muscle biology</span><span>Physiology</span><span>Microbiology</span><span>Pathology</span><span>Public health</span></div></div>
         <div class="degree-metrics" data-reveal><div><strong>3.66</strong><span>GPA</span></div><div><strong>UVAS</strong><span>Lahore, Pakistan</span></div></div>
@@ -920,5 +921,6 @@ document.querySelectorAll('[data-count]').forEach((item) => countObserver.observ
 document.querySelector('[data-year]').textContent = new Date().getFullYear();
 
   </script>
+  <script src="education-v2.js" defer></script>
 </body>
 </html>
