@@ -1,0 +1,57 @@
+/* Contact motion preview: safe profile-link feedback and image depth. */
+.contact-links a {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-inline: 0;
+  transition: color .25s ease;
+}
+
+.contact-links a:hover {
+  padding-inline: 0;
+}
+
+.contact-links a::after {
+  position: absolute;
+  z-index: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  pointer-events: none;
+  content: "";
+  background: var(--copper);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .45s cubic-bezier(.2, .8, .2, 1);
+}
+
+.contact-links a > * {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-portrait img {
+  transition: object-position .8s cubic-bezier(.2, .8, .2, 1);
+  object-position: center 34%;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .contact-links a:hover::after {
+    transform: scaleX(1);
+  }
+
+  .contact-links a[data-magnetic] {
+    translate: var(--contact-magnetic-x, 0) 0;
+  }
+
+  .contact-portrait:hover img {
+    object-position: center 27%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-links a::after {
+    display: none;
+  }
+}
