@@ -65,25 +65,4 @@
     });
   }
 
-  const hero = document.querySelector('.hero');
-
-  if (hero) {
-    let animationFrame = 0;
-
-    const updateParallax = () => {
-      const bounds = hero.getBoundingClientRect();
-      const progress = Math.max(-1, Math.min(1, -bounds.top / Math.max(bounds.height, 1)));
-      hero.style.setProperty('--premium-hero-parallax', `${progress * 24}px`);
-      animationFrame = 0;
-    };
-
-    const requestParallaxUpdate = () => {
-      if (animationFrame) return;
-      animationFrame = requestAnimationFrame(updateParallax);
-    };
-
-    updateParallax();
-    window.addEventListener('scroll', requestParallaxUpdate, { passive: true });
-    window.addEventListener('resize', requestParallaxUpdate);
-  }
 })();

@@ -28,7 +28,6 @@
   inset: 0;
   pointer-events: none;
   background: radial-gradient(600px 320px at 70% 10%, rgba(217, 255, 99, .07), transparent 70%);
-  transform: translate3d(0, var(--premium-hero-parallax, 0), 0);
 }
 
 .hero-grid {
@@ -40,7 +39,6 @@
 .button-resume {
   position: relative;
   overflow: hidden;
-  will-change: transform;
 }
 
 .button-primary::after,
@@ -53,13 +51,13 @@
   height: 100%;
   pointer-events: none;
   background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .55), transparent);
-  transform: skewX(-20deg);
-  transition: left .55s;
+  transform: translateX(0) skewX(-20deg);
+  transition: transform .55s;
 }
 
 .button-primary:hover::after,
 .button-resume:hover::after {
-  left: 130%;
+  transform: translateX(400%) skewX(-20deg);
 }
 
 .portrait-frame {
@@ -111,15 +109,6 @@
     transform: none;
     filter: none;
     animation: none;
-  }
-
-  .hero::after {
-    transform: none;
-  }
-
-  .button-primary,
-  .button-resume {
-    will-change: auto;
   }
 
   .button-primary::after,

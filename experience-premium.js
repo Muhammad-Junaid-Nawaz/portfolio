@@ -13,33 +13,6 @@
 
   document.querySelectorAll('.role').forEach((role) => roleObserver.observe(role));
 
-  const parallaxImages = document.querySelectorAll('.experience-hero-image img, .role-media img');
-  let parallaxFrame = 0;
-
-  const updateParallax = () => {
-    const viewportHeight = window.innerHeight;
-
-    parallaxImages.forEach((image) => {
-      const bounds = image.getBoundingClientRect();
-      if (bounds.top >= viewportHeight || bounds.bottom <= 0) return;
-
-      const progress = (bounds.top + bounds.height / 2 - viewportHeight / 2) / viewportHeight;
-      const offset = Math.max(-8, Math.min(8, progress * -10));
-      image.style.objectPosition = `center calc(50% + ${offset}px)`;
-    });
-
-    parallaxFrame = 0;
-  };
-
-  const requestParallaxUpdate = () => {
-    if (parallaxFrame) return;
-    parallaxFrame = requestAnimationFrame(updateParallax);
-  };
-
-  updateParallax();
-  window.addEventListener('scroll', requestParallaxUpdate, { passive: true });
-  window.addEventListener('resize', requestParallaxUpdate);
-
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   if (!finePointer) return;
 

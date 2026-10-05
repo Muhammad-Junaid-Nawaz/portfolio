@@ -52,7 +52,6 @@
 .experience-close .button-primary {
   position: relative;
   overflow: hidden;
-  will-change: transform;
 }
 
 .experience-close .button-primary::after {
@@ -64,8 +63,8 @@
   height: 100%;
   pointer-events: none;
   background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .6), transparent);
-  transform: skewX(-20deg);
-  transition: left .55s;
+  transform: translateX(0) skewX(-20deg);
+  transition: transform .55s;
 }
 
 .career-summary > div {
@@ -93,7 +92,7 @@
   }
 
   .experience-close .button-primary:hover::after {
-    left: 130%;
+    transform: translateX(400%) skewX(-20deg);
   }
 }
 
@@ -113,10 +112,6 @@
     opacity: 1;
     transform: none;
     transition: none;
-  }
-
-  .experience-close .button-primary {
-    will-change: auto;
   }
 
   .experience-close .button-primary::after {

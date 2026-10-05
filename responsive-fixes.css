@@ -1,0 +1,445 @@
+/* Shared responsive corrections for compact desktops, tablets, and phones. */
+
+/* Keep frequently used controls comfortably tappable without changing their label size. */
+.menu-button,
+.site-footer a,
+.citation-link,
+.credential-gallery-control {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.menu-button,
+.site-footer a,
+.citation-link {
+  align-items: center;
+}
+
+.site-footer a,
+.citation-link {
+  display: inline-flex;
+}
+
+.site-footer a {
+  justify-self: end;
+}
+
+/* The Beyond gallery must size from its column, not from aspect-ratio minimums. */
+.beyond-page main {
+  overflow: visible;
+}
+
+.beyond-page .chapter,
+.beyond-page .gallery,
+.beyond-page .photo {
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.beyond-page .photo img {
+  width: 100%;
+}
+
+/* Progressive controls for horizontally scrolling recognition galleries. */
+.credential-gallery-shell {
+  position: relative;
+}
+
+.credential-gallery-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: .65rem;
+  margin: -1.25rem 0 1rem;
+}
+
+.credential-gallery-control {
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  color: currentColor;
+  cursor: pointer;
+  font: 600 .72rem "Manrope", sans-serif;
+  transition: background .2s ease, color .2s ease, opacity .2s ease;
+}
+
+.credential-gallery-control:hover:not(:disabled) {
+  background: var(--copper);
+  border-color: var(--copper);
+  color: white;
+}
+
+.certification-gallery-section .credential-gallery-control:hover:not(:disabled) {
+  background: var(--acid);
+  border-color: var(--acid);
+  color: var(--ink);
+}
+
+.credential-gallery-control:disabled {
+  cursor: default;
+  opacity: .32;
+}
+
+.credential-gallery:focus-visible {
+  outline: 3px solid var(--copper);
+  outline-offset: 4px;
+}
+
+.certification-gallery-section .credential-gallery:focus-visible {
+  outline-color: var(--acid);
+}
+
+/* Switch the crowded seven-link header before it runs out of usable room. */
+@media (max-width: 1120px) {
+  .menu-button {
+    display: flex;
+    justify-content: center;
+    gap: .6rem;
+    cursor: pointer;
+    font-size: .7rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  .menu-lines,
+  .menu-lines::before {
+    display: block;
+    width: 1.25rem;
+    height: 1px;
+    background: currentColor;
+    content: "";
+    transition: transform .25s;
+  }
+
+  .menu-lines::before {
+    transform: translateY(-5px);
+  }
+
+  .menu-button[aria-expanded="true"] .menu-lines {
+    transform: rotate(45deg);
+  }
+
+  .menu-button[aria-expanded="true"] .menu-lines::before {
+    transform: rotate(-90deg);
+  }
+
+  .site-nav {
+    position: absolute;
+    inset: 100% 0 auto;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 1rem 1.3rem 1.5rem;
+    border-bottom: 1px solid rgba(16, 24, 22, .18);
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  .site-nav.open {
+    display: flex;
+  }
+
+  .site-nav a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding-inline: .25rem;
+    border-bottom: 1px solid rgba(16, 24, 22, .14);
+  }
+
+  .site-nav a[aria-current="page"] {
+    color: var(--copper);
+  }
+
+  .beyond-page .photo.wide {
+    aspect-ratio: auto;
+  }
+}
+
+/* Portrait tablets and narrow laptop windows get a deliberate one-column composition. */
+@media (min-width: 901px) and (max-width: 1120px) {
+  .hero-grid,
+  .experience-hero,
+  .expertise-hero,
+  .education-hero,
+  .recognition-hero,
+  .beyond-page .hero,
+  .contact-hero {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: auto;
+    gap: 3rem;
+    padding-top: 8.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .hero-copy h1,
+  .experience-hero-copy h1,
+  .expertise-hero-copy h1,
+  .education-hero-copy h1,
+  .recognition-hero h1,
+  .beyond-page .hero h1,
+  .contact-hero-copy h1 {
+    max-width: 14ch;
+    font-size: clamp(3.5rem, 7vw, 5rem);
+  }
+
+  .hero-visual,
+  .experience-hero-image,
+  .education-hero-visual,
+  .recognition-hero-grid,
+  .contact-portrait {
+    width: min(70%, 640px);
+    margin-left: auto;
+  }
+
+  .portrait-frame img,
+  .experience-hero-image img,
+  .education-hero-visual img,
+  .contact-portrait img {
+    height: min(48svh, 520px);
+    min-height: 400px;
+  }
+
+  .expertise-orbit {
+    width: min(62vw, 560px);
+    margin: 1rem auto 0;
+  }
+
+  .beyond-page .hero-visual {
+    width: min(78%, 680px);
+    min-height: 32rem;
+  }
+}
+
+/* Short landscape screens need a compact first view even when they are wide. */
+@media (min-width: 1121px) and (max-height: 820px) {
+  .hero-grid,
+  .experience-hero,
+  .expertise-hero,
+  .education-hero,
+  .recognition-hero,
+  .beyond-page .hero,
+  .contact-hero {
+    min-height: 100svh;
+    gap: clamp(2rem, 4vw, 5rem);
+    padding-top: 6.75rem;
+    padding-bottom: 2.25rem;
+  }
+
+  .hero-copy h1,
+  .experience-hero-copy h1,
+  .expertise-hero-copy h1,
+  .education-hero-copy h1,
+  .recognition-hero h1,
+  .beyond-page .hero h1,
+  .contact-hero-copy h1 {
+    font-size: clamp(3rem, 5.2vw, 4.9rem);
+  }
+
+  .portrait-frame img,
+  .experience-hero-image img,
+  .education-hero-visual img,
+  .contact-portrait img {
+    height: min(60vh, 520px);
+    min-height: 0;
+  }
+
+  .recognition-hero-grid article {
+    min-height: 12rem;
+  }
+
+  .beyond-page .hero-visual {
+    min-height: 30rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-grid,
+  .experience-hero,
+  .expertise-hero,
+  .education-hero,
+  .recognition-hero,
+  .beyond-page .hero,
+  .contact-hero {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: auto;
+    gap: 2.5rem;
+    padding-top: 8.25rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero-copy h1,
+  .experience-hero-copy h1,
+  .expertise-hero-copy h1,
+  .education-hero-copy h1,
+  .recognition-hero h1,
+  .beyond-page .hero h1,
+  .contact-hero-copy h1 {
+    max-width: 14ch;
+    font-size: clamp(3.25rem, 7vw, 4.5rem);
+    line-height: .98;
+  }
+
+  .portrait-frame img,
+  .experience-hero-image img,
+  .education-hero-visual img,
+  .contact-portrait img {
+    height: min(52svh, 460px);
+    min-height: 340px;
+  }
+
+  .expertise-orbit {
+    width: min(72vw, 520px);
+  }
+
+  .recognition-hero-grid article {
+    min-height: 10rem;
+  }
+
+  .beyond-page .hero-visual {
+    min-height: clamp(24rem, 65svh, 31rem);
+  }
+
+  .beyond-page .photo,
+  .beyond-page .photo.tall {
+    min-height: clamp(22rem, 72vw, 28rem);
+  }
+
+  .credential-gallery-controls {
+    justify-content: flex-start;
+    margin-top: 0;
+  }
+
+  .site-footer a {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-grid,
+  .experience-hero,
+  .expertise-hero,
+  .education-hero,
+  .recognition-hero,
+  .beyond-page .hero,
+  .contact-hero {
+    gap: 2rem;
+    padding-top: 7.5rem;
+    padding-bottom: 3rem;
+  }
+
+  .hero-copy h1,
+  .experience-hero-copy h1,
+  .expertise-hero-copy h1,
+  .education-hero-copy h1,
+  .recognition-hero h1,
+  .beyond-page .hero h1,
+  .contact-hero-copy h1 {
+    font-size: clamp(2.9rem, 12vw, 3.4rem);
+  }
+
+  .hero-intro,
+  .experience-hero-copy > p:last-child,
+  .expertise-hero-copy > p:last-child,
+  .education-hero-copy > p:last-child,
+  .recognition-hero > div:first-child > p:last-child,
+  .contact-hero-copy > p:last-of-type {
+    margin-top: 1.5rem;
+  }
+
+  .hero-visual,
+  .experience-hero-image,
+  .education-hero-visual,
+  .recognition-hero-grid,
+  .contact-portrait {
+    width: 100%;
+  }
+
+  .portrait-frame img,
+  .experience-hero-image img,
+  .education-hero-visual img,
+  .contact-portrait img {
+    height: min(48svh, 410px);
+    min-height: 300px;
+  }
+
+  .expertise-orbit {
+    width: min(86vw, 410px);
+  }
+
+  .recognition-hero-grid article {
+    min-height: 8.5rem;
+    padding: 1.15rem;
+  }
+
+  .role,
+  .degree {
+    min-height: auto;
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .role-heading h2,
+  .degree header h2 {
+    font-size: clamp(2.55rem, 11vw, 3.6rem);
+  }
+
+  .role-media img {
+    max-height: none;
+    aspect-ratio: .9;
+  }
+
+  .domain-visual img {
+    min-height: clamp(22rem, 110vw, 32rem);
+  }
+
+  .commercial-project,
+  .commercial-project-gallery {
+    min-height: auto;
+  }
+
+  .commercial-project-gallery {
+    height: min(165vw, 42rem);
+  }
+
+  .project-card,
+  .project-featured {
+    min-height: 24rem;
+  }
+
+  .section-pad,
+  .journey,
+  .chapter,
+  .passions,
+  .credential-gallery-section {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .beyond-page .hero-visual {
+    min-height: 25rem;
+  }
+
+  .beyond-page .photo,
+  .beyond-page .photo.tall {
+    min-height: clamp(20rem, 108vw, 26rem);
+  }
+
+  .credential-gallery {
+    grid-auto-columns: min(82vw, 320px);
+    scroll-padding-inline: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .credential-gallery {
+    scroll-behavior: auto;
+  }
+
+  .credential-gallery-control {
+    transition: none;
+  }
+}
