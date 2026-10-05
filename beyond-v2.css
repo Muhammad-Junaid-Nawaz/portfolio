@@ -1,0 +1,58 @@
+/* Beyond motion preview: bounded decoration and stable image depth. */
+.chapter {
+  --chapter-glow-x: 80%;
+  --chapter-glow-y: 10%;
+  isolation: isolate;
+  position: relative;
+}
+
+.chapter::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  opacity: 0;
+  background: radial-gradient(600px 280px at var(--chapter-glow-x) var(--chapter-glow-y), rgba(217, 255, 99, .08), transparent 70%);
+  transition: opacity .5s ease;
+}
+
+.chapter > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Replace the page's scale effect with a contained focal-point shift. */
+.hero-visual .hero-image,
+.gallery .photo img {
+  transition: object-position .8s cubic-bezier(.2, .8, .2, 1);
+}
+
+.gallery .photo:hover img {
+  transform: none;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .chapter:hover::before {
+    opacity: 1;
+  }
+
+  .chapter:hover .chapter-copy {
+    transform: translateY(-3px);
+  }
+
+  .chapter-copy {
+    transition: transform .35s cubic-bezier(.2, .8, .2, 1);
+  }
+
+  .hero-visual:hover .hero-image,
+  .gallery .photo:hover img {
+    object-position: center 42%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chapter::before {
+    display: none;
+  }
+}
